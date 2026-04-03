@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#161625',    /* Main Navy Background */
+                        darkerBg: '#11111d',  /* Secondary Darker Background */
+                        accentRed: '#e93b4e', /* The Signature Red */
+                        cardBg: '#1f1f2e',    /* Portfolio Card Color */
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom CSS for Background Shapes & Animations */
+        body {
+            background-color: #161625;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* The Red Semi-Circle Shape in Hero */
+        .hero-shape {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80%;
+            height: 70%;
+            background: #e93b4e;
+            border-top-left-radius: 500px; /* Creates that curved look */
+            z-index: -1;
+        }
+
+        /* Smooth Hover for Portfolio Cards */
+        .portfolio-card {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Timeline Dot Glow */
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(233, 59, 78, 0.2);
+        }
+
+        /* Navigation underline animation */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #e93b4e;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="text-white font-body">
+
+    <nav class="fixed w-full z-50 bg-darkBg/80 backdrop-blur-md py-6">
+        <div class="container mx-auto px-10 flex justify-between items-center">
+            <div class="text-3xl font-heading font-bold text-accentRed">Logo</div>
+            <div class="hidden md:flex space-x-8 items-center text-sm font-medium">
+                <a href="#" class="nav-link">About Me</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">Portfolio</a>
+                <a href="#" class="nav-link">Contact</a>
+                <button class="bg-accentRed px-6 py-2 rounded-sm hover:shadow-[0_0_15px_rgba(233,59,78,0.4)] transition">Download CV</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="container mx-auto px-10 grid md:grid-cols-2 gap-10 items-center">
+            <div class="reveal-left">
+                <span class="text-accentRed bg-accentRed/10 px-3 py-1 text-xs font-bold uppercase tracking-widest">Welcome! I'm</span>
+                <h1 class="text-7xl font-heading font-bold mt-4 leading-tight">Your Name <br><span class="text-gray-400 text-5xl">Here</span></h1>
+                <p class="text-accentRed font-semibold mt-2">Professional Data & BI Analyst</p>
+                <p class="text-gray-400 mt-6 max-w-md leading-relaxed">
+                    Transforming complex data into executive-level clarity through professional business intelligence dashboards and strategic insights.
+                </p>
+            </div>
+
+            <div class="relative reveal-right flex justify-center">
+                <div class="relative z-10 w-[400px] h-[500px] border-l-4 border-accentRed p-4">
+                    <div class="w-full h-full bg-gray-800 rounded-sm overflow-hidden">
+                        <img src="https://via.placeholder.com/400x500" alt="Profile" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                    </div>
+                    <div class="hero-shape"></div>
+                </div>
+                
+                <div class="absolute right-[-20px] top-1/2 -translate-y-1/2 rotate-90 flex items-center space-x-4 text-xs tracking-widest text-gray-500 uppercase">
+                    <span>Follow me on :</span>
+                    <div class="h-[1px] w-12 bg-gray-600"></div>
+                    <span class="rotate-[-90px] lowercase text-white hover:text-accentRed cursor-pointer">LinkedIn</span>
+                    <span class="rotate-[-90px] lowercase text-white hover:text-accentRed cursor-pointer">GitHub</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-darkerBg py-20">
+        <div class="container mx-auto px-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-cardBg p-8 rounded-lg text-center reveal-bottom">
+                <h3 class="text-4xl font-heading font-bold">10+</h3>
+                <p class="text-gray-500 text-sm mt-2">Projects Completed</p>
+            </div>
+            <div class="bg-cardBg p-8 rounded-lg text-center reveal-bottom" style="transition-delay: 0.1s;">
+                <h3 class="text-4xl font-heading font-bold">03+</h3>
+                <p class="text-gray-500 text-sm mt-2">Years Experience</p>
+            </div>
+            <div class="bg-cardBg p-8 rounded-lg text-center reveal-bottom" style="transition-delay: 0.2s;">
+                <h3 class="text-4xl font-heading font-bold">100%</h3>
+                <p class="text-gray-500 text-sm mt-2">Data Accuracy</p>
+            </div>
+            <div class="bg-cardBg p-8 rounded-lg text-center reveal-bottom" style="transition-delay: 0.3s;">
+                <h3 class="text-4xl font-heading font-bold">SQL</h3>
+                <p class="text-gray-500 text-sm mt-2">Expertise</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24">
+        <div class="container mx-auto px-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-left">
+                <div>
+                    <h2 class="text-5xl font-heading font-bold">Portfolio</h2>
+                    <p class="text-gray-500 mt-4 max-w-lg">A showcase of my technical projects in Data Analysis, SQL, and Power BI.</p>
+                </div>
+                <div class="flex space-x-4 mt-8 md:mt-0">
+                    <button class="text-sm border-b-2 border-accentRed pb-1">All Work</button>
+                    <button class="text-sm text-gray-500 hover:text-white transition">Professional</button>
+                    <button class="text-sm text-gray-500 hover:text-white transition">Personal</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="portfolio-card bg-cardBg aspect-square rounded-md overflow-hidden group relative reveal-bottom">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition">
+                    <div class="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black w-full">
+                        <p class="text-accentRed text-xs font-bold">Power BI</p>
+                        <h4 class="text-xl font-bold">Car Dealership Dashboard</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card bg-cardBg aspect-square rounded-md overflow-hidden group relative reveal-bottom" style="transition-delay: 0.1s;">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition">
+                    <div class="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black w-full">
+                        <p class="text-accentRed text-xs font-bold">SQL / ETL</p>
+                        <h4 class="text-xl font-bold">Retail Data Cleaning</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card bg-cardBg aspect-square rounded-md overflow-hidden group relative reveal-bottom" style="transition-delay: 0.2s;">
+                    <img src="https://via.placeholder.com/400" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition">
+                    <div class="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black w-full">
+                        <p class="text-accentRed text-xs font-bold">Python</p>
+                        <h4 class="text-xl font-bold">Financial Market Analysis</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize ScrollReveal
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '60px',
+            duration: 2000,
+            delay: 200,
+            reset: false // Change to true if you want animations to repeat every time you scroll up
+        });
+
+        sr.reveal('.reveal-left', { origin: 'left' });
+        sr.reveal('.reveal-right', { origin: 'right' });
+        sr.reveal('.reveal-bottom', { origin: 'bottom', interval: 100 });
+        sr.reveal('.reveal-top', { origin: 'top' });
+    </script>
+</body>
+</html>
